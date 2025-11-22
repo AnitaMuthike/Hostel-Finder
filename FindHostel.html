@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Hostel</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top w-100 shadow">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fw-bold">Smart Hostel Finder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2">
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Find Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Smart Suggestions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Hostels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Bookmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Tips/Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Add Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Contact</a>
+                    </li>
+                    </ul>
+
+                    <ul class="navbar-nav mx-3 mb-2">
+                        <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-dark fw-bold" href="#">Login</a>
+                        </li>
+                    </ul>
+                
+            </div>
+        </div>
+    </nav>
+    
+
+   
+
+    <section class="py-5 bg-light">
+  <div class="container">
+
+    <!-- Title -->
+    <h2 class="fw-bold text-center mb-4 text-primary">Find Your Perfect Hostel</h2>
+
+    <!-- Search Bar -->
+    <div class="card shadow-sm p-4 mb-4">
+      <div class="row g-3">
+
+        <!-- Keyword Search -->
+        <div class="col-md-4">
+          <input type="text" class="form-control form-control-lg" placeholder="Search by name…">
+        </div>
+
+        <!-- County -->
+        <div class="col-md-2">
+          <select class="form-select form-select-lg">
+            <option selected>County</option>
+            <option>Nairobi</option>
+            <option>Kiambu</option>
+            <option>Mombasa</option>
+            <option>Uasin Gishu</option>
+          </select>
+        </div>
+
+        <!-- Town -->
+        <div class="col-md-2">
+          <select class="form-select form-select-lg">
+            <option selected>Town</option>
+            <option>Thika</option>
+            <option>Juja</option>
+            <option>Kitengele</option>
+            <option>CBD</option>
+          </select>
+        </div>
+
+        <!-- Location -->
+        <div class="col-md-2">
+          <select class="form-select form-select-lg">
+            <option selected>Location</option>
+            <option>Gate A</option>
+            <option>Gate B</option>
+            <option>Stage Area</option>
+          </select>
+        </div>
+
+        <!-- Search Button -->
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-lg w-100">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters & Sort -->
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-3">
+
+      <!-- Price Filter -->
+      <div class="d-flex align-items-center gap-2">
+        <label class="fw-bold">Price:</label>
+        <select class="form-select form-select-sm">
+          <option selected>Any</option>
+          <option>Below 5,000</option>
+          <option>5,000 - 8,000</option>
+          <option>8,000 - 12,000</option>
+          <option>12,000+</option>
+        </select>
+      </div>
+
+      <!-- Room Type -->
+      <div class="d-flex align-items-center gap-2">
+        <label class="fw-bold">Room:</label>
+        <select class="form-select form-select-sm">
+          <option selected>Any</option>
+          <option>Single</option>
+          <option>Double</option>
+          <option>Bedsitter</option>
+          <option>Self-contained</option>
+        </select>
+      </div>
+
+      <!-- Sort -->
+      <div class="d-flex align-items-center gap-2 ms-auto">
+        <label class="fw-bold">Sort By:</label>
+        <select class="form-select form-select-sm">
+          <option selected>Nearest</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Most Popular</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Hostel Results Grid -->
+    <div class="row g-4">
+
+      <!-- Hostel Card 1 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="Images/FeaturedRoom.png" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="fw-bold">Sunrise Hostel</h5>
+            <p class="text-muted small">Juja • 500m from campus</p>
+            <p class="fw-bold text-primary">Ksh 6,500 / month</p>
+            <button class="btn btn-outline-primary w-100">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hostel Card 2 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="fw-bold">Green Villa Hostels</h5>
+            <p class="text-muted small">Nairobi CBD • 1.2km</p>
+            <p class="fw-bold text-primary">Ksh 11,000 / month</p>
+            <button class="btn btn-outline-primary w-100">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hostel Card 3 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="fw-bold">Campus View Residence</h5>
+            <p class="text-muted small">Thika • 350m</p>
+            <p class="fw-bold text-primary">Ksh 8,000 / month</p>
+            <button class="btn btn-outline-primary w-100">View Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="row g-5 mt-4">
+        
+        <div class="col-lg-8">
+            
+            <h3 class="fw-bold mb-3">About This Bedsitter</h3>
+            <p class="text-muted">
+                The Phoenix Residences offers modern, secure, and spacious bedsitters, perfect for JKUAT students. 
+                Enjoy high-speed Wi-Fi, 24/7 security, and a dedicated reading area. Located just outside the Main Gate, 
+                you'll save money and time on travel. Each unit features a private kitchenette corner and clean ensuite washroom.
+            </p>
+            <p class="text-muted">
+                This particular unit is on the 3rd floor, facing the quiet eastern side, and is available for immediate occupancy.
+            </p>
+
+            <hr class="my-4">
+
+            <h3 class="fw-bold mb-3">Key Amenities</h3>
+            <div class="row g-3">
+                <div class="col-md-4 col-6"><p class="mb-0">✅ <span class="fw-bold">High-Speed Wi-Fi</span></p></div>
+                <div class="col-md-4 col-6"><p class="mb-0">🚿 <span class="fw-bold">Hot Showers</span></p></div>
+                <div class="col-md-4 col-6"><p class="mb-0">🔒 <span class="fw-bold">24/7 Security</span></p></div>
+                <div class="col-md-4 col-6"><p class="mb-0">💡 <span class="fw-bold">Reading Light</span></p></div>
+                <div class="col-md-4 col-6"><p class="mb-0">🧺 <span class="fw-bold">Laundry Room Access</span></p></div>
+                <div class="col-md-4 col-6"><p class="mb-0">📐 <span class="fw-bold">18m² Space</span></p></div>
+            </div>
+
+            <hr class="my-4">
+            
+            <h3 class="fw-bold mb-3">Hostel Rules</h3>
+            <ul class="text-muted small">
+                <li>No smoking allowed inside the units.</li>
+                <li>Quiet hours are from 10 PM to 6 AM.</li>
+                <li>One guest permitted per resident, must sign in with security.</li>
+            </ul>
+            
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 shadow-lg border-3 border-primary" style="position: sticky; top: 1rem;">
+                <h4 class="fw-bold text-center text-success mb-3">
+                    Ksh 8,500 <small class="text-muted fw-normal">/ Month</small>
+                </h4>
+                
+                <div class="mb-3">
+                    <label class="form-label small">Move-in Date</label>
+                    <input type="date" class="form-control" value="2025-12-01">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="form-label small">Duration (Months)</label>
+                    <select class="form-select">
+                        <option selected>Select Duration</option>
+                        <option value="3">3 Months</option>
+                        <option value="6">6 Months</option>
+                        <option value="12">12 Months (Get 1 Month Free!)</option>
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-lg fw-bold rounded-pill">
+                        Book This Room Now!
+                    </button>
+                    <button class="btn btn-outline-warning btn-sm fw-bold rounded-pill">
+                        Ask AI Chatbot About This Hostel
+                    </button>
+                </div>
+
+                <p class="text-center small text-muted mt-3">
+                    Deposit: Ksh 5,000. Price is subject to change.
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-7">
+            <img src="https://via.placeholder.com/800x450" class="img-fluid rounded shadow" alt="Hostel Image">
+        </div>
+
+        <div class="col-md-5">
+            <h2 class="fw-bold text-primary">Sunrise Student Hostel</h2>
+            <p class="text-muted">Juja • 500m from JKUAT Main Gate</p>
+
+            <div class="mb-3">
+                ⭐⭐⭐⭐☆
+            </div>
+
+            <p class="lead">
+                Affordable, secure, and clean hostel ideal for students who prefer privacy and convenience.
+            </p>
+
+            <h4 class="fw-bold text-success">KSh 6,500 / month</h4>
+
+            <button class="btn btn-warning mt-3 px-4 fw-bold">Book Now</button>
+        </div>
+    </div>
+</section>
+
+<section class="container my-4">
+    <h4 class="fw-bold mb-3">Amenities & Features</h4>
+
+    <div class="row g-3">
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded bg-light text-center">
+                🚿 Hot Shower
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded bg-light text-center">
+                📶 Free WiFi
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded bg-light text-center">
+                🔐 24/7 Security
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded bg-light text-center">
+                🚰 Clean Water
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded bg-light text-center">
+                💡 Power Backup
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded bg-light text-center">
+                🛏 Furnished Rooms
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container my-5">
+    <h4 class="fw-bold mb-3">Room Types</h4>
+
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Room Type</th>
+                <th>Price (per month)</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Single Room</td>
+                <td>KSh 8,000</td>
+                <td><span class="badge bg-success">Available</span></td>
+            </tr>
+
+            <tr>
+                <td>Double Room</td>
+                <td>KSh 6,500</td>
+                <td><span class="badge bg-warning text-dark">Few Slots</span></td>
+            </tr>
+
+            <tr>
+                <td>Self-Contained</td>
+                <td>KSh 12,000</td>
+                <td><span class="badge bg-danger">Fully Booked</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+<section class="container my-5">
+    <h4 class="fw-bold mb-3">Location on Map</h4>
+
+    <div class="ratio ratio-16x9 shadow rounded">
+        <iframe 
+            src="https://maps.google.com/maps?q=JKUAT%20Juja&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<section class="container my-5">
+    <h4 class="fw-bold mb-3">Contact the Owner</h4>
+
+    <div class="p-4 bg-light rounded shadow-sm">
+
+        <p><strong>Owner Name:</strong> James Kariuki</p>
+        <p><strong>Phone:</strong> <a href="tel:+254712345678">+254 712 345 678</a></p>
+        <p><strong>Email:</strong> hostelowner@gmail.com</p>
+
+        <button class="btn btn-primary mt-3">Message Owner</button>
+    </div>
+</section>
+
+
+<section class="container my-5">
+
+    <h4 class="fw-bold mb-4">Student Reviews</h4>
+
+    <div class="card p-3 mb-3 shadow-sm">
+        <strong>Mary W. ⭐⭐⭐⭐⭐</strong>
+        <p class="small text-muted">"Quiet and secure. Loved the environment!"</p>
+    </div>
+
+    <div class="card p-3 mb-3 shadow-sm">
+        <strong>Brian K. ⭐⭐⭐⭐☆</strong>
+        <p class="small text-muted">"Good rooms but WiFi sometimes slow."</p>
+    </div>
+
+    <div class="card p-3 mb-3 shadow-sm">
+        <strong>Samuel O. ⭐⭐⭐⭐⭐</strong>
+        <p class="small text-muted">"Close to school, worth the money."</p>
+    </div>
+
+</section>
+
+
+<div class="row g-5 mt-5">
+    <div class="col-12">
+        <h2 class="fw-bold mb-4 text-primary">Location & Proximity</h2>
+        <div class="row g-4">
+            <div class="col-md-8">
+                <div class="ratio ratio-16x9 rounded shadow border border-primary">
+                    <img src="https://placehold.co/1000x562/343a3f/ffffff?text=HOSTEL+LOCATION+MAP+Near+JKUAT" 
+                         class="img-fluid" 
+                         alt="Map showing hostel location relative to JKUAT"
+                         style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5 class="fw-bold">Key Walking Distances:</h5>
+                <ul class="list-group list-group-flush small">
+                    <li class="list-group-item">🚶 3 min to JKUAT Main Gate</li>
+                    <li class="list-group-item">🚌 5 min to Public Transport Stop</li>
+                    <li class="list-group-item">🛒 2 min to Local Shops/Kiosks</li>
+                    <li class="list-group-item">🏥 10 min to Local Clinic</li>
+                </ul>
+                <p class="small text-muted mt-3">
+                    Exact address provided upon confirmed booking for security purposes.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-5 mt-5">
+    <div class="col-12">
+        <h2 class="fw-bold mb-4 text-primary">Student Reviews (4.8 / 5)</h2>
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <div class="card p-3 text-center border-3 border-warning h-100">
+                    <h1 class="display-3 fw-bolder text-warning">4.8</h1>
+                    <p class="lead mb-0">Excellent based on 145 reviews</p>
+                    <span class="text-warning display-6">★★★★★</span>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                
+                <div class="card p-3 mb-3 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0 fw-bold">Mercy L. (Verified Resident)</p>
+                        <span class="small text-warning">★★★★★</span>
+                    </div>
+                    <p class="small text-muted mb-1">Reviewed 2 months ago</p>
+                    <p class="mb-0 small">"The security here is top-notch. Clean washrooms and very reliable Wi-Fi. Perfect for focused study."</p>
+                </div>
+
+                <div class="card p-3 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0 fw-bold">Alex O. (Verified Resident)</p>
+                        <span class="small text-warning">★★★★☆</span>
+                    </div>
+                    <p class="small text-muted mb-1">Reviewed 4 months ago</p>
+                    <p class="mb-0 small">"Great value for the price! Only slight issue is the limited laundry machines, but otherwise great location."</p>
+                </div>
+
+                <button class="btn btn-outline-primary btn-sm mt-3">Read all 145 Reviews</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-5 pb-5"></div>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Booking — Smart Hostel Finder</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+  <div class="row g-4">
+    <!-- Left: Hostel preview -->
+    <div class="col-lg-6">
+      <img src="https://via.placeholder.com/800x450" class="img-fluid rounded mb-3" alt="hostel">
+      <h2 class="fw-bold">Sunrise Student Hostel</h2>
+      <p class="text-muted">Juja • 500m from campus</p>
+      <div>Rating: ⭐⭐⭐⭐☆</div>
+      <p class="mt-3">Comfortable rooms, 24/7 security and reliable water supply.</p>
+      <hr>
+      <h6 class="mb-2">Select Room</h6>
+      <div class="list-group" id="roomList">
+        <label class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>Single Room</strong><br><small class="text-muted">Shared common kitchen</small>
+          </div>
+          <div>
+            <span class="fw-bold">8,000</span>
+            <input class="form-check-input ms-3" type="radio" name="roomType" value="8000" checked>
+          </div>
+        </label>
+
+        <label class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>Double Room</strong><br><small class="text-muted">Shared bathroom</small>
+          </div>
+          <div>
+            <span class="fw-bold">6,500</span>
+            <input class="form-check-input ms-3" type="radio" name="roomType" value="6500">
+          </div>
+        </label>
+
+        <label class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>Self-Contained</strong><br><small class="text-muted">Private bathroom</small>
+          </div>
+          <div>
+            <span class="fw-bold">12,000</span>
+            <input class="form-check-input ms-3" type="radio" name="roomType" value="12000">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Right: Booking summary & form -->
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Booking Summary</h5>
+
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input id="guestName" type="text" class="form-control" placeholder="Your name">
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-6">
+              <label class="form-label">Check-in</label>
+              <input id="checkin" type="date" class="form-control">
+            </div>
+            <div class="col-6">
+              <label class="form-label">Check-out</label>
+              <input id="checkout" type="date" class="form-control">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Guests</label>
+            <select id="guests" class="form-select">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Extras</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="extraCleaning" value="200">
+              <label class="form-check-label">Extra Cleaning (Ksh 200)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="earlyCheckin" value="300">
+              <label class="form-check-label">Early Check-in (Ksh 300)</label>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="mb-3">
+            <h6>Price Breakdown</h6>
+            <div class="d-flex justify-content-between"><div>Room</div><div id="priceRoom">6,500</div></div>
+            <div class="d-flex justify-content-between"><div>Extras</div><div id="priceExtras">0</div></div>
+            <div class="d-flex justify-content-between"><div>Deposit (10%)</div><div id="priceDeposit">650</div></div>
+            <hr>
+            <div class="d-flex justify-content-between fw-bold"><div>Total</div><div id="priceTotal">7,150</div></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Payment Method</label>
+            <select id="paymentMethod" class="form-select">
+              <option>Mpesa (Paybill/Till)</option>
+              <option>Bank Transfer</option>
+              <option>Cash on Arrival</option>
+            </select>
+          </div>
+
+          <button id="proceedBtn" class="btn btn-primary w-100">Proceed to Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Simple price calculation logic
+  function calc() {
+    const room = Number(document.querySelector('input[name="roomType"]:checked').value);
+    const extras = (document.getElementById('extraCleaning').checked ? Number(document.getElementById('extraCleaning').value) : 0)
+                 + (document.getElementById('earlyCheckin').checked ? Number(document.getElementById('earlyCheckin').value) : 0);
+    const deposit = Math.round((room + extras) * 0.10);
+    const total = room + extras + deposit;
+    document.getElementById('priceRoom').textContent = room.toLocaleString();
+    document.getElementById('priceExtras').textContent = extras.toLocaleString();
+    document.getElementById('priceDeposit').textContent = deposit.toLocaleString();
+    document.getElementById('priceTotal').textContent = total.toLocaleString();
+  }
+
+  // event listeners
+  document.querySelectorAll('input[name="roomType"]').forEach(el => el.addEventListener('change', calc));
+  document.getElementById('extraCleaning').addEventListener('change', calc);
+  document.getElementById('earlyCheckin').addEventListener('change', calc);
+
+  // initialize
+  calc();
+
+  document.getElementById('proceedBtn').addEventListener('click', () => {
+    alert('Proceeding to payment (demo). Please implement payment flow.');
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chatbot — Smart Hostel Finder</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Floating bubble -->
+<button id="chatBubble" class="btn btn-primary rounded-circle shadow-lg" 
+        style="position:fixed;right:20px;bottom:20px;width:64px;height:64px;z-index:1050;">
+  <span style="font-size:22px;">💬</span>
+</button>
+
+<!-- Chat Modal (offcanvas) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="chatOff" aria-labelledby="chatOffLabel">
+  <div class="offcanvas-header">
+    <h5 id="chatOffLabel">Smart Assistant</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column" style="min-height:60vh;">
+    <div id="chatWindow" class="flex-grow-1 mb-3" style="overflow:auto;">
+      <div class="mb-3"><small class="text-muted">Assistant</small>
+        <div class="p-2 bg-light rounded">Hi! I can help find hostels near you. Try "Find nearest hostel".</div>
+      </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="mb-3">
+      <div class="d-flex gap-2 flex-wrap">
+        <button class="btn btn-outline-primary btn-sm" onclick="sendQuick('Find nearest hostel')">Find nearest hostel</button>
+        <button class="btn btn-outline-primary btn-sm" onclick="sendQuick('Compare prices')">Compare prices</button>
+        <button class="btn btn-outline-primary btn-sm" onclick="sendQuick('Check vacancy')">Check vacancy</button>
+        <button class="btn btn-outline-primary btn-sm" onclick="detectLocation()">Use my location</button>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-group">
+      <input id="chatInput" type="text" class="form-control" placeholder="Ask a question...">
+      <button id="sendBtn" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toggle offcanvas when bubble clicked
+  const chatBubble = document.getElementById('chatBubble');
+  chatBubble.addEventListener('click', () => {
+    const off = new bootstrap.Offcanvas('#chatOff');
+    off.toggle();
+  });
+
+  // simple chat append
+  function appendMessage(sender, text) {
+    const chatWindow = document.getElementById('chatWindow');
+    const el = document.createElement('div');
+    el.className = 'mb-3';
+    el.innerHTML = `<small class="text-muted">${sender}</small>
+                    <div class="p-2 ${sender==='You' ? 'bg-primary text-white' : 'bg-light'} rounded">${text}</div>`;
+    chatWindow.appendChild(el);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
+  document.getElementById('sendBtn').addEventListener('click', () => {
+    const txt = document.getElementById('chatInput').value.trim();
+    if(!txt) return;
+    appendMessage('You', txt);
+    // demo: mock AI response
+    setTimeout(()=> appendMessage('Assistant', 'I found some hostels nearby. Click "Find nearest hostel" or allow location.'), 600);
+    document.getElementById('chatInput').value = '';
+  });
+
+  function sendQuick(q) {
+    appendMessage('You', q);
+    setTimeout(()=> appendMessage('Assistant', `Demo reply for: "${q}"`), 500);
+  }
+
+  // Geolocation demo (ask permission and show coords)
+  function detectLocation() {
+    appendMessage('You', 'Use my location');
+    if (!navigator.geolocation) {
+      appendMessage('Assistant', 'Geolocation not supported by your browser.');
+      return;
+    }
+    appendMessage('Assistant', 'Requesting location...');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const lat = pos.coords.latitude.toFixed(5);
+        const lon = pos.coords.longitude.toFixed(5);
+        appendMessage('Assistant', `Got your location: ${lat}, ${lon}. Searching hostels nearby...`);
+        // here you'd call your API using lat/lon to suggest hostels
+      },
+      (err) => appendMessage('Assistant', 'Unable to get location: ' + err.message)
+    );
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Map — Smart Hostel Finder</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-4">
+  <h2 class="fw-bold mb-3">Hostels Map</h2>
+
+  <!-- Filters (floating) -->
+  <div class="mb-3 d-flex gap-2 flex-wrap">
+    <select class="form-select w-auto">
+      <option selected>Any price</option>
+      <option>Below 5,000</option>
+    </select>
+    <select class="form-select w-auto">
+      <option selected>Any amenity</option>
+      <option>WiFi</option>
+      <option>Water 24/7</option>
+    </select>
+    <button class="btn btn-primary" onclick="centerToSample()">Center Sample</button>
+  </div>
+
+  <!-- Map iframe (simple, no API key) -->
+  <div class="ratio ratio-16x9 shadow rounded mb-3">
+    <iframe 
+      src="https://maps.google.com/maps?q=Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <p class="text-muted small">Tip: For interactive markers use the Google Maps JS API (requires API key).</p>
+
+  <!-- Optional: JS stub showing how to initialize a map with API key (paste inside script tag) -->
+  <pre class="small bg-light p-2 rounded"><code>
+// Example stub (not active here). Replace YOUR_API_KEY and uncomment scripts to use.
+// &lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer&gt;&lt;/script&gt;
+// function initMap() {
+//   const center = { lat: -1.286389, lng: 36.817223 };
+//   const map = new google.maps.Map(document.getElementById('map'), { zoom: 13, center });
+//   const hostels = [
+//     { pos: {lat:-1.28333,lng:36.81667}, title:'Hostel A', price:4500 },
+//     { pos: {lat:-1.29207,lng:36.82195}, title:'Hostel B', price:6500 }
+//   ];
+//   hostels.forEach(h => {
+//     const marker = new google.maps.Marker({ position: h.pos, map, title: h.title });
+//     const info = new google.maps.InfoWindow({ content: `<strong>${h.title}</strong><br>Ksh ${h.price}` });
+//     marker.addListener('click', () => info.open(map, marker));
+//   });
+// }
+  </code></pre>
+</div>
+
+<script>
+  function centerToSample() {
+    alert('Demo: you would center the interactive map to the selected area here.');
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

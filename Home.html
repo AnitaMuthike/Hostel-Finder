@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <style>
+        .hero {
+            background: url('your-image.jpg') center/cover no-repeat;
+            padding: 100px 0;
+            color: white;
+        }
+        .hero-bg {
+            background: rgba(12, 37, 59, 0.6);
+            padding: 60px;
+            border-radius: 15px;
+        }
+        .popular-card {
+    cursor: pointer; /* Makes it clear it's clickable */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.popular-card:hover {
+    transform: translateY(-5px); /* slight lift on hover */
+    background-color: #ffc107; /* changes color on hover */
+    color: white; /* optional: change text color */
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top w-100 shadow">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fw-bold">Smart Hostel Finder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2">
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Find Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Smart Suggestions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Hostels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Bookmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Tips/Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Add Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Contact</a>
+                    </li>
+                    </ul>
+
+                    <ul class="navbar-nav mx-3 mb-2">
+                        <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-dark fw-bold" href="#">Login</a>
+                        </li>
+                    </ul>
+                
+            </div>
+        </div>
+    </nav>
+    <section class="d-flex align-items-center text-white py-5" 
+             style="background: url('your-image.jpg') center/cover no-repeat; min-height: 650px;">
+        
+        <div class="container">
+            <div class="p-5 rounded-3 text-center shadow-lg" style="background-color: rgba(11, 28, 48, 0.85);">
+                <h1 class="fw-bold mb-4 display-4">Find Your Perfect hostel</h1>
+                <p class="lead mb-4">Search by county, town or lest our system find hostels near yor location</p>
+                <form class="row g-3 justify-content-center">
+                    <div class="col-mb-3">
+                        <select class="form-select py-2 shadow-sm">
+                            <option selected>Select County</option>
+                            <option>Nairobi</option>
+                            <option>Kiambu</option>
+                            <option>Kirinyaga</option>
+                            <option>Mombasa</option>
+                            <option>Eldoret</option>
+                            <option>Murang'a</option>
+                            <option>Nyeri</option>
+                            <option>Nakuru"</option>
+                            <option>Meru</option>
+                            <option>Tharaka Nithi</option>
+                            <option>Embu</option>
+                            <option>Machakos</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <select class="form-select py-2 shadow-sm">
+                            <option selected>Select Town</option>
+                        </select>
+                    </div>
+
+                   <div class="col-md-3">
+                        <select class="form-select py-2 shadow-sm">
+                            <option selected>Select Location</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button class="btn btn-warning w-100 fw-bold py-2 shadow-sm">Search</button>
+                    </div>
+                </form>
+
+                <button class="btn btn-light mt-5 fw-bold px-5 py-3 rounded-pill shadow">
+                    <span class="text-primary">📍 Hostel Near Me</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-5 bg-light">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Popular Locations</h2>
+        <p class="text-muted">Explore hostels in the most sought-after student hubs</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm" onclick="location.href='nairobi.html'" style="cursor: pointer; transition: 0.3s;">
+            <img src="Images/KICC.png" style="height: 160px; object-fit: cover;">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-dark">Nairobi</h5>
+                <p class="card-text small text-muted">City Center & Environs</p>
+                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">View Hostels</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm" onclick="location.href='kiambu.html'" style="cursor: pointer; transition: 0.3s;">
+             <img src="Images/KU.png" style="height: 160px; object-fit: cover;">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-dark">Kiambu</h5>
+                <p class="card-text small text-muted">Quiet & Affordable</p>
+                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">View Hostels</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm" onclick="location.href='kirinyaga.html'" style="cursor: pointer; transition: 0.3s;">
+             <img src="Images/MtKenya.png" style="height: 160px; object-fit: cover;">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-dark">Kirinyaga</h5>
+                <p class="card-text small text-muted">Student Hub</p>
+                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">View Hostels</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm" onclick="location.href='mombasa.html'" style="cursor: pointer; transition: 0.3s;">
+             <img src="Images/MombasaTusks.png" style="height: 160px; object-fit: cover;">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-dark">Mombasa</h5>
+                <p class="card-text small text-muted">Coastal Region</p>
+                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">View Hostels</span>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold text-primary">Top Rated Hostels</h2>
+            <a href="#" class="btn btn-outline-primary rounded-pill">View All</a>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative">
+                        <img src="Images/SunriseHos.png" class="card-img-top" alt="Hostel" style="height: 200px; object-fit: cover;">
+                        <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold px-3 py-1 m-2 rounded-pill small">
+                            Ksh 8,000/mo
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <small class="text-muted">📍 Juja, Kiambu</small>
+                            <small class="text-warning">★ 4.8 (120)</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Sunrise Student Haven</h5>
+                        <p class="card-text text-muted small">Free WiFi • Hot Showers • Security</p>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-sm rounded-pill">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative">
+                        <img src="Images/EliteHos.png" class="card-img-top" alt="Hostel" style="height: 200px; object-fit: cover;">
+                        <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold px-3 py-1 m-2 rounded-pill small">
+                            Ksh 12,000/mo
+                        </span>
+                    </div>
+                    <div class="card-body">
+                         <div class="d-flex justify-content-between mb-2">
+                            <small class="text-muted">📍 Parklands, Nairobi</small>
+                            <small class="text-warning">★ 4.5 (85)</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Elite Residency</h5>
+                        <p class="card-text text-muted small">Gym • Shuttle Bus • Study Hall</p>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-sm rounded-pill">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative">
+                        <img src="Images/GreenWoodHos.png" class="card-img-top" alt="Hostel" style="height: 200px; object-fit: cover;">
+                        <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold px-3 py-1 m-2 rounded-pill small">
+                            Ksh 6,500/mo
+                        </span>
+                    </div>
+                    <div class="card-body">
+                         <div class="d-flex justify-content-between mb-2">
+                            <small class="text-muted">📍 Eldoret CBD</small>
+                            <small class="text-warning">★ 4.2 (40)</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Greenwood Apartments</h5>
+                        <p class="card-text text-muted small">Single Rooms • Water 24/7</p>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-sm rounded-pill">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            
+            <div class="col-md-7">
+                <div class="ratio ratio-16x9 shadow-lg rounded-3 border border-3 border-warning overflow-hidden">
+                    <a href="map-search-page.html" class="text-decoration-none">
+                    <div class="ratio ratio-16x9 shadow-lg rounded-3 border border-3 border-warning overflow-hidden">
+                        <img src="Images/Map.png" class="img-fluid" alt="Map preview" style="object-fit: cover;">
+                    </div>
+                </a>
+                </div>
+                <p class="mt-3 text-center text-muted small">
+                    *Image is a preview. Click "Find Nearby" for real-time results.*
+                </p>
+            </div>
+
+            <div class="col-md-5">
+                <span class="badge bg-warning text-dark fw-bold mb-3 p-2 rounded-pill">
+                    SMART FEATURE
+                </span>
+                <h2 class="fw-bold display-5 mb-4">
+                    Find Hostels Based on <span class="text-warning">Walking Distance</span>
+                </h2>
+                <p class="lead mb-4 text-white-50">
+                    Our AI proximity feature instantly matches you with available rooms closest to your school, saving you time and travel costs.
+                </p>
+                <div class="d-grid gap-2 d-sm-block">
+                    <button class="btn btn-warning btn-lg fw-bold rounded-pill shadow-sm" type="button">
+                        <i class="bi bi-geo-alt-fill"></i> Find Hostels Nearby
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <div class="row align-items-center">
+        
+    
+        <div class="col-md-6">
+            <h2 class="fw-bold">Need Help? Chat With Our Smart AI Assistant</h2>
+            <p class="mt-3">
+                Our intelligent chatbot is available 24/7 to help you find hostels, compare prices, 
+                check availability, and get instant room suggestions based on your location.
+            </p>
+            <button class="btn btn-primary btn-lg mt-3">
+                Start Chatting
+            </button>
+        </div>
+
+
+        <div class="col-md-6 text-center">
+            <div class="card shadow-sm border-0 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">AI Chatbot</h5>
+                    <p class="card-text">Tap below to begin a conversation.</p>
+                    <button class="btn btn-outline-primary btn-sm">
+                        Open Chatbot
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<section class="py-5 bg-light text-center">
+    <div class="container">
+        
+        <h2 class="fw-bold text-primary mb-5">Find by Room Type</h2>
+
+        <div class="row g-4"> 
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="search.html?type=bedsitter" class="text-decoration-none text-dark">
+                    <div class="card p-4 h-100 shadow border-0 bg-white">
+                        <span class="display-4 mb-3 d-block">🏠</span>
+                        <h4 class="fw-bold">Bedsitters</h4>
+                        <p class="small text-muted">Self-contained, budget-friendly efficiency units.</p>
+                        <span class="fw-bold text-primary small">Explore Options →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="search.html?type=single" class="text-decoration-none text-dark">
+                    <div class="card p-4 h-100 shadow border-0 bg-white">
+                        <span class="display-4 mb-3 d-block">🛌</span>
+                        <h4 class="fw-bold">Single Rooms</h4>
+                        <p class="small text-muted">Private space for maximum focus and comfort.</p>
+                        <span class="fw-bold text-primary small">Explore Options →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="search.html?type=double" class="text-decoration-none text-dark">
+                    <div class="card p-4 h-100 shadow border-0 bg-white">
+                        <span class="display-4 mb-3 d-block">👯</span>
+                        <h4 class="fw-bold">Double/Shared</h4>
+                        <p class="small text-muted">Cost-effective shared living near campus.</p>
+                        <span class="fw-bold text-primary small">Explore Options →</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="search.html?type=multi-room" class="text-decoration-none text-dark">
+                    <div class="card p-4 h-100 shadow border-0 bg-white">
+                        <span class="display-4 mb-3 d-block">🏢</span>
+                        <h4 class="fw-bold">Multi-Room Units</h4>
+                        <p class="small text-muted">1, 2, or 3-bedroom units ideal for groups or shared flats.</p>
+                        <span class="fw-bold text-primary small">Explore Options →</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <h2 class="fw-bold text-center mb-4 text-primary">What Students Say About Us</h2>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="card mx-auto border-0 shadow-lg p-4 bg-info" style="max-width: 650px;">
+                    <div class="text-center">
+                        <img src="Images/MaryN.png" class="rounded-circle mb-3" alt="Student" style="width: 90px; height: 90px; object-fit: cover;">
+                        <h5 class="fw-bold mb-1">Mary W.</h5>
+                        <p class="small">University of Nairobi</p>
+
+                        <div class="mb-3 text-warning">
+                            ★★★★★
+                        </div>
+
+                        <p class="fst-italic px-3">
+                            "This platform made it super easy to find a hostel near my campus.
+                            The proximity search is AMAZING!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card mx-auto border-0 shadow-lg p-4 bg-warning" style="max-width: 650px;">
+                    <div class="text-center">
+                        <img src="Images/Brian.png" class="rounded-circle mb-3" alt="Student" style="width: 90px; height: 90px; object-fit: cover;">
+                        <h5 class="fw-bold mb-1">Brian K.</h5>
+                        <p class="small">Kenyatta University</p>
+
+                        <div class="mb-3 text-primary">
+                            ★★★★☆
+                        </div>
+
+                        <p class="fst-italic px-3">
+                            "I love how the AI chatbot compares hostels and tells me what fits my budget.
+                            Super convenient!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card mx-auto border-0 shadow-lg p-4 bg-primary" style="max-width: 650px;">
+                    <div class="text-center text-white">
+                        <img src="Images/Anita.png" class="rounded-circle mb-3" alt="Student" style="width: 90px; height: 90px; object-fit: cover;">
+                        <h5 class="fw-bold mb-1">Anita M.</h5>
+                        <p class="small">JKUAT</p>
+
+                        <div class="mb-3 text-warning">
+                            ★★★★★
+                        </div>
+
+                        <p class="fst-italic px-3 text-white">
+                            "Highly recommended! I found an affordable hostel and booked it instantly. Love the design!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card mx-auto border-0 shadow-lg p-4 bg-success" style="max-width: 650px;">
+                    <div class="text-center">
+                        <img src="Images/Samuel.png" class="rounded-circle mb-3" alt="Student" style="width: 90px; height: 90px; object-fit: cover;">
+                        <h5 class="fw-bold mb-1">Samuel O.</h5>
+                        <p class="small">Maseno University</p>
+
+                        <div class="mb-3 text-warning">
+                            ★★★★☆
+                        </div>
+
+                        <p class="fst-italic px-3">
+                            "The map-based suggestion saved me from walking around searching for hostels. It's brilliant!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+</div>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-5 text-primary">Student Blog & Tips</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="Images/Safety.png" 
+                         class="card-img-top" 
+                         alt="Image of money being saved" 
+                         style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <small class="text-muted">Hostel Life • October 20, 2025</small>
+                        <h5 class="card-title fw-bold">How to Choose a Safe & Affordable Hostel</h5>
+                        <p class="card-text text-muted">
+                            Learn the essential things you should check before booking any student hostel.
+                        </p>
+                        <a href="blog-post-1.html" class="btn btn-link text-primary fw-bold p-0">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="Images/Budget.png" 
+                         class="card-img-top" 
+                         alt="Image of a secure gate" 
+                         style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <small class="text-muted">Safety Guide • October 15, 2025</small>
+                        <h5 class="card-title fw-bold">Top Budget Hostels for Students</h5>
+                        <p class="card-text text-muted">
+                            Discover pocket-friendly hostels in different towns and university areas.
+                        </p>
+                        <a href="blog-post-2.html" class="btn btn-link text-primary fw-bold p-0">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="Images/MistakesAvoid.png" 
+                         class="card-img-top" 
+                         alt="Image comparing two different rooms" 
+                         style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <small class="text-muted">Room Guide • October 1, 2025</small>
+                        <h5 class="card-title fw-bold">Mistakes Students Make When Booking Hostels</h5>
+                        <p class="card-text text-muted">
+                            Avoid common errors that make students lose money or pick the wrong hostel.
+                        </p>
+                        <a href="blog-post-3.html" class="btn btn-link text-primary fw-bold p-0">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- LEFT SIDE TEXT -->
+            <div class="col-md-7 mb-4 mb-md-0">
+                <h2 class="fw-bold text-danger">Are You a Hostel Owner?</h2>
+                <p class="lead">
+                    List your hostel on Smart Hostel Finder and reach thousands of students searching for accommodation daily.
+                </p>
+
+                <div class="mt-3">
+                    <div class="d-flex mb-2">
+                        <span class="me-2">✔</span>
+                        <p class="mb-0">Get more visibility and daily traffic</p>
+                    </div>
+
+                    <div class="d-flex mb-2">
+                        <span class="me-2">✔</span>
+                        <p class="mb-0">Showcase rooms, prices, amenities & photos</p>
+                    </div>
+
+                    <div class="d-flex">
+                        <span class="me-2">✔</span>
+                        <p class="mb-0">Receive instant bookings from students</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE CTA CARD -->
+            <div class="col-md-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body text-center p-4">
+
+                        <h4 class="fw-bold text-primary">List Your Hostel Today</h4>
+                        <p class="text-muted small mb-4">
+                            It's free and takes less than 5 minutes.
+                        </p>
+
+                        <a href="add_hostel.html" class="btn btn-warning fw-bold px-4 py-2 w-100">
+                            Add My Hostel
+                        </a>
+
+                        <p class="mt-3 small text-muted">
+                            Need help? <a href="#" class="text-decoration-none fw-bold">Contact Support</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-dark text-white text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">List Your Hostel & Get More Bookings</h2>
+    <p class="mb-4">Hostel owners, join our platform and reach thousands of students easily. You can also download our mobile app for instant management.</p>
+
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <a href="list-hostel.html" class="btn btn-warning btn-lg fw-bold">List Your Hostel</a>
+      <a href="#" class="btn btn-light btn-lg fw-bold">Download App</a>
+    </div>
+  </div>
+</section>
+
+
+<footer class="text-white pt-5 pb-4" style="background: linear-gradient(135deg, #6a11cb, #2575fc); color: white;" class="pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-warning">About Smart Hostel Finder</h5>
+        <p class="small">
+          We help students find hostels near their campus with ease. Our intelligent chatbot and proximity-based suggestions make booking convenient and stress-free.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="find-hostel.html" class="text-white text-decoration-none">Find Hostel</a></li>
+          <li><a href="smart-suggestions.html" class="text-white text-decoration-none">Smart Suggestions</a></li>
+          <li><a href="blog.html" class="text-white text-decoration-none">Tips/Blog</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Contact Us</h5>
+        <p class="small mb-1">Email: support@smarthostelfinder.com</p>
+        <p class="small mb-1">Phone: +254 700 000 000</p>
+        <p class="small">Address: Nairobi, Kenya</p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-2 mb-4">
+        <h5 class="fw-bold text-warning">Follow Us</h5>
+        <div class="d-flex gap-2">
+          <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="bg-white">
+
+    <div class="text-center small">
+      &copy; 2025 Smart Hostel Finder. All Rights Reserved.**Designed by Anita Muthike.**
+    </div>
+  </div>
+</footer>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   </body>
+</html>
