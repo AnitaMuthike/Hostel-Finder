@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<Style>
+   .amenity-card {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Hover effects */
+.amenity-card:hover {
+    background-color: #0d6efd;   /* Bootstrap primary */
+    color: white;
+    transform: translateY(-5px); /* slight lift */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+</Style>
+ 
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top w-100 shadow">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fw-bold h5 text-sm">Smart Hostel Finder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-nowrap overflow-x-auto text-sm">
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="FindHostel.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Find Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Smart Suggestions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Hostels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Bookmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Tips/Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Add Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Contact</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mx-3 mb-2 mb-lg-0 ms-0">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-dark fw-bold px-2 text-nowrap text-sm" href="#">Login</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+    
+    
+        <div class="row mb-4">
+        <div class="col-12">
+            <span class="badge bg-success fw-bold me-2">Bedsitter</span>
+            <span class="text-muted small">ID #25492</span>
+            <h1 class="fw-bolder mt-2 text-primary">Sunrise Hostels - Block B</h1>
+            <p class="lead text-muted">📍 Juja, near JKUAT Main Gate (3 min walk)</p>
+        </div>
+        </div>
+
+     <div class="row g-2 mb-5">
+        <div class="col-md-8">
+            <img src="Images/FeaturedRoom.png" 
+                 class="img-fluid rounded-start shadow-lg" 
+                 alt="Main room view" 
+                 style="object-fit: cover; height: 100%;">
+        </div>
+        <div class="col-md-4">
+            <div class="row g-2">
+                <div class="col-12 mb-2">
+                    <img src="https://placehold.co/600x350/ffc107/212529?text=COMMON+AREA" 
+                         class="img-fluid rounded shadow-sm" 
+                         alt="Common area" 
+                         style="object-fit: cover;">
+                </div>
+                <div class="col-12">
+                    <img src="https://placehold.co/600x350/198754/ffffff?text=KITCHEN+or+WASHROOM" 
+                         class="img-fluid rounded shadow-sm" 
+                         alt="Kitchen or Washroom" 
+                         style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        </div>
+    
+        <hr>
+    
+        <div class="row g-5 mt-4">
+        
+        <div class="col-lg-8">
+            
+            <h3 class="fw-bold mb-3">About This Bedsitter</h3>
+            <p class="text-muted">
+                Sunrise Hostels  offers modern, secure, and spacious bedsitters, perfect for JKUAT students. 
+                Enjoy high-speed Wi-Fi, 24/7 security, and a dedicated reading area. Located just outside the Main Gate, 
+                you'll save money and time on travel. Each unit features a private kitchenette corner and clean ensuite washroom.
+            </p>
+            <p class="text-muted">
+                This particular unit is on the 3rd floor, facing the quiet eastern side, and is available for immediate occupancy.
+            </p>
+
+            <hr class="my-4">
+
+          <section class="container my-4">
+        <h4 class="fw-bold mb-3">Amenities & Features</h4>
+
+        <div class="row g-3">
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded  text-center amenity-card">
+                🚿 Hot Shower
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded  text-center amenity-card">
+                📶 Free WiFi
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded  text-center amenity-card">
+                🔐 24/7 Security
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded text-center amenity-card">
+                🚰 Clean Water
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded  text-center amenity-card">
+                💡 Power Backup
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="p-3 border rounded text-center amenity-card">
+                🛏 Furnished Rooms
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+            <hr class="my-4">
+            
+            <h3 class="fw-bold mb-3">Hostel Rules</h3>
+            <ul class="text-muted small">
+                <li>No smoking allowed inside the units.</li>
+                <li>Quiet hours are from 10 PM to 6 AM.</li>
+                <li>One guest permitted per resident, must sign in with security.</li>
+            </ul>
+            
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 shadow-lg border-3 border-primary" style="position: sticky; top: 1rem;">
+                <h4 class="fw-bold text-center text-success mb-3">
+                    Ksh 8,500 <small class="text-muted fw-normal">/ Month</small>
+                </h4>
+                
+                <div class="mb-3">
+                    <label class="form-label small">Move-in Date</label>
+                    <input type="date" class="form-control" value="2025-12-01">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="form-label small">Duration (Months)</label>
+                    <select class="form-select">
+                        <option selected>Select Duration</option>
+                        <option value="3">3 Months</option>
+                        <option value="6">6 Months</option>
+                        <option value="12">12 Months (Get 1 Month Free!)</option>
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <a href="Booking.html">
+                        <button class="btn btn-primary btn-lg fw-bold rounded-pill">
+                        Book This Room Now!
+                    </button>
+                    </a>
+                    <button class="btn btn-outline-warning btn-sm fw-bold rounded-pill">
+                        Ask AI Chatbot About This Hostel
+                    </button>
+                </div>
+
+                <p class="text-center small text-muted mt-3">
+                    Deposit: Ksh 5,000. Price is subject to change.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="container my-5">
+    <h4 class="fw-bold mb-3">Room Types</h4>
+
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Room Type</th>
+                <th>Price (per month)</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Single Room</td>
+                <td>KSh 8,000</td>
+                <td><span class="badge bg-success">Available</span></td>
+            </tr>
+
+            <tr>
+                <td>Double Room</td>
+                <td>KSh 6,500</td>
+                <td><span class="badge bg-warning text-dark">Few Slots</span></td>
+            </tr>
+
+            <tr>
+                <td>Self-Contained</td>
+                <td>KSh 12,000</td>
+                <td><span class="badge bg-danger">Fully Booked</span></td>
+            </tr>
+        </tbody>
+  </table>
+
+</section>
+
+
+<div class="row g-5 mt-5">
+    <div class="col-12">
+        <h2 class="fw-bold mb-4 text-primary">Location & Proximity</h2>
+        <div class="row g-4">
+            <div class="col-md-8">
+                <div class="ratio ratio-16x9 rounded shadow border border-primary">
+                    <div class="ratio ratio-16x9 shadow rounded">
+        <iframe 
+            src="https://maps.google.com/maps?q=JKUAT%20Juja&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            >
+        </iframe>
+    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5 class="fw-bold">Key Walking Distances:</h5>
+                <ul class="list-group list-group-flush small">
+                    <li class="list-group-item">🚶 3 min to JKUAT Main Gate</li>
+                    <li class="list-group-item">🚌 5 min to Public Transport Stop</li>
+                    <li class="list-group-item">🛒 2 min to Local Shops/Kiosks</li>
+                    <li class="list-group-item">🏥 10 min to Local Clinic</li>
+                </ul>
+                <p class="small text-muted mt-3">
+                    Exact address provided upon confirmed booking for security purposes.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="container my-5">
+    <h4 class="fw-bold mb-3">Contact the Owner</h4>
+
+    <div class="p-4 bg-light rounded shadow-sm">
+
+        <p><strong>Owner Name:</strong> James Kariuki</p>
+        <p><strong>Phone:</strong> <a href="tel:+254712345678">+254 712 345 678</a></p>
+        <p><strong>Email:</strong> hostelowner@gmail.com</p>
+
+        <button class="btn btn-primary mt-3">Message Owner</button>
+    </div>
+</section>
+
+<div class="row g-5 mt-5">
+    <div class="col-12">
+        <h2 class="fw-bold mb-4 text-primary">Student Reviews (4.8 / 5)</h2>
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <div class="card p-3 text-center border-3 border-warning h-100">
+                    <h1 class="display-3 fw-bolder text-warning">4.8</h1>
+                    <p class="lead mb-0">Excellent based on 145 reviews</p>
+                    <span class="text-warning display-6">★★★★★</span>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                
+                <div class="card p-3 mb-3 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0 fw-bold">Mercy L. (Verified Resident)</p>
+                        <span class="small text-warning">★★★★★</span>
+                    </div>
+                    <p class="small text-muted mb-1">Reviewed 2 months ago</p>
+                    <p class="mb-0 small">"The security here is top-notch. Clean washrooms and very reliable Wi-Fi. Perfect for focused study."</p>
+                </div>
+
+                <div class="card p-3 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0 fw-bold">Alex O. (Verified Resident)</p>
+                        <span class="small text-warning">★★★★☆</span>
+                    </div>
+                    <p class="small text-muted mb-1">Reviewed 4 months ago</p>
+                    <p class="mb-0 small">"Great value for the price! Only slight issue is the limited laundry machines, but otherwise great location."</p>
+                </div>
+
+                <button class="btn btn-outline-primary btn-sm mt-3">Read all 145 Reviews</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-5 pb-5"></div>
+</div>
+
+<footer class="text-white pt-5 pb-4 " style="background: linear-gradient(135deg, #6a11cb, #2575fc);height:auto;" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-warning">About Smart Hostel Finder</h5>
+        <p class="small">
+          We help students find hostels near their campus with ease. Our intelligent chatbot and proximity-based suggestions make booking convenient and stress-free.
+        </p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="findHostel.html" class="text-white text-decoration-none">Find Hostel</a></li>
+          <li><a href="smart-suggestions.html" class="text-white text-decoration-none">Smart Suggestions</a></li>
+          <li><a href="blog.html" class="text-white text-decoration-none">Tips/Blog</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Contact Us</h5>
+        <p class="small mb-1">Email: support@smarthostelfinder.com</p>
+        <p class="small mb-1">Phone: +254 700 000 000</p>
+        <p class="small">Address: Nairobi, Kenya</p>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h5 class="fw-bold text-warning">Follow Us</h5>
+        <div class="d-flex gap-2">
+          <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="bg-white">
+    <div class="text-center small">
+      © 2025 Smart Hostel Finder. All Rights Reserved.**Designed by Anita Muthike.**
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
