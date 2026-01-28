@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant | Smart Hostel Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        /* Body Gradient */
+        body {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        /* Chat Window Styling */
+        .chat-card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+        }
+
+        /* The scrollable area for messages */
+        .chat-history {
+            height: 60vh; /* Takes up 60% of viewport height */
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+        }
+
+        /* Message Bubbles */
+        .message-bubble {
+            max-width: 75%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            position: relative;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Bot Message Style */
+        .bot-message {
+            background-color: #ffffff;
+            color: #333;
+            border-bottom-left-radius: 2px; /* Square off one corner */
+            margin-right: auto; /* Push to left */
+        }
+
+        /* User Message Style */
+        .user-message {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            color: white;
+            border-bottom-right-radius: 2px;
+            margin-left: auto; /* Push to right */
+        }
+
+        /* Avatar styling */
+        .chat-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        /* Quick Questions Sidebar Hover */
+        .quick-question {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quick-question:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="min-vh-100 d-flex flex-column">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top w-100 shadow">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fw-bold">Smart Hostel Finder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2">
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="FindHostel.html" class="nav-link text-white fw-bold">Find Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="SmartSuggestion.html" class="nav-link text-white fw-bold">Smart Suggestions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Hostels.html" class="nav-link text-white fw-bold">Hostels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Chatbot.html" class="nav-link text-white fw-bold">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Bookmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Tips/Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Add Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Contact</a>
+                    </li>
+                    </ul>
+
+                    <ul class="navbar-nav mx-3 mb-2">
+                        <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-dark fw-bold" href="#">Login</a>
+                        </li>
+                    </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4 flex-grow-1">
+        <div class="row g-4 h-100">
+            
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold mb-3 text-primary">Quick FAQs</h4>
+                        <p class="text-muted small mb-4">Click a question to ask the bot instantly.</p>
+                        
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item quick-question py-3 border-0 rounded mb-2" onclick="sendQuickMessage('How do I book a room?')">
+                                <i class="bi bi-calendar-check text-success me-2"></i> How do I book a room?
+                            </div>
+                            <div class="list-group-item quick-question py-3 border-0 rounded mb-2" onclick="sendQuickMessage('What is the cheapest hostel?')">
+                                <i class="bi bi-tag-fill text-warning me-2"></i> Show me cheap hostels
+                            </div>
+                            <div class="list-group-item quick-question py-3 border-0 rounded mb-2" onclick="sendQuickMessage('Is there free WiFi?')">
+                                <i class="bi bi-wifi text-primary me-2"></i> Which hostels have WiFi?
+                            </div>
+                            <div class="list-group-item quick-question py-3 border-0 rounded mb-2" onclick="sendQuickMessage('Contact Support')">
+                                <i class="bi bi-headset text-danger me-2"></i> I need human support
+                            </div>
+                        </div>
+
+                        <div class="mt-4 bg-light p-3 rounded text-center">
+                            <p class="small text-muted mb-1">Bot Status</p>
+                            <span class="badge bg-success"><span class="spinner-grow spinner-grow-sm me-1" style="width: 0.5rem; height: 0.5rem;"></span> Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card chat-card shadow h-100 d-flex flex-column">
+                    
+                    <div class="card-header bg-white border-bottom p-3 d-flex align-items-center">
+                        <div class="chat-avatar bg-primary text-white">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 fw-bold">SmartBot Assistant</h5>
+                            <small class="text-muted">Typically replies instantly</small>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-outline-secondary btn-sm rounded-circle" title="Clear Chat" onclick="location.reload()">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chat-history d-flex flex-column" id="chatBox">
+                        
+                        <div class="d-flex align-items-end mb-3">
+                            <div class="chat-avatar bg-primary text-white small">
+                                <i class="bi bi-robot"></i>
+                            </div>
+                            <div class="message-bubble bot-message shadow-sm">
+                                <strong>Hello! 👋</strong><br>
+                                I'm the Smart Hostel AI. I can help you find rooms, check prices, or answer questions about amenities. How can I help you today?
+                            </div>
+                        </div>
+
+                        </div>
+
+                    <div class="card-footer bg-white p-3 border-top">
+                        <form id="chatForm" class="d-flex gap-2" onsubmit="handleChat(event)">
+                            <button type="button" class="btn btn-light rounded-circle text-primary">
+                                <i class="bi bi-paperclip"></i>
+                            </button>
+                            <input type="text" id="userInput" class="form-control rounded-pill bg-light border-0 px-3" placeholder="Type your message here..." autocomplete="off">
+                            <button type="submit" class="btn btn-primary rounded-circle shadow-sm">
+                                <i class="bi bi-send-fill"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+   <footer class="text-white pt-5 pb-4" style="background: linear-gradient(135deg, #6a11cb, #2575fc); color: white;" class="pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-warning">About Smart Hostel Finder</h5>
+        <p class="small">
+          We help students find hostels near their campus with ease. Our intelligent chatbot and proximity-based suggestions make booking convenient and stress-free.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="FindHostel.html" class="text-white text-decoration-none">Find Hostel</a></li>
+          <li><a href="SmartSuggestion.html" class="text-white text-decoration-none">Smart Suggestions</a></li>
+          <li><a href="blog.html" class="text-white text-decoration-none">Tips/Blog</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Contact Us</h5>
+        <p class="small mb-1">Email: support@smarthostelfinder.com</p>
+        <p class="small mb-1">Phone: +254 700 000 000</p>
+        <p class="small">Address: Nairobi, Kenya</p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-2 mb-4">
+        <h5 class="fw-bold text-warning">Follow Us</h5>
+        <div class="d-flex gap-2">
+          <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="bg-white">
+
+    <div class="text-center small">
+      &copy; 2025 Smart Hostel Finder. All Rights Reserved.**Designed by Anita Muthike.**
+    </div>
+  </div>
+</footer>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const chatBox = document.getElementById('chatBox');
+        const userInput = document.getElementById('userInput');
+
+        // Function to handle form submission
+        function handleChat(event) {
+            event.preventDefault(); // Stop form from refreshing page
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // 1. Add User Message
+            appendMessage('user', text);
+            userInput.value = '';
+
+            // 2. Simulate Bot Typing (Delay)
+            showTyping();
+
+            setTimeout(() => {
+                removeTyping();
+                // 3. Generate Bot Response
+                const botReply = getBotResponse(text);
+                appendMessage('bot', botReply);
+            }, 1000); // 1.5s delay
+        }
+
+        // Function for Quick Questions sidebar
+        function sendQuickMessage(text) {
+            userInput.value = text;
+            handleChat({ preventDefault: () => {} });
+        }
+
+        // Append message to UI
+        function appendMessage(sender, text) {
+            const div = document.createElement('div');
+            
+            if (sender === 'user') {
+                div.className = 'd-flex align-items-end mb-3 justify-content-end';
+                div.innerHTML = `
+                    <div class="message-bubble user-message shadow-sm">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                div.className = 'd-flex align-items-end mb-3';
+                div.innerHTML = `
+                    <div class="chat-avatar bg-primary text-white small">
+                        <i class="bi bi-robot"></i>
+                    </div>
+                    <div class="message-bubble bot-message shadow-sm">
+                        ${text}
+                    </div>
+                `;
+            }
+            
+            chatBox.appendChild(div);
+            scrollToBottom();
+        }
+
+        // Show "Typing..." indicator
+        function showTyping() {
+            const div = document.createElement('div');
+            div.id = 'typingIndicator';
+            div.className = 'd-flex align-items-end mb-3';
+            div.innerHTML = `
+                <div class="chat-avatar bg-primary text-white small">
+                    <i class="bi bi-robot"></i>
+                </div>
+                <div class="message-bubble bot-message shadow-sm text-muted fst-italic">
+                    <span class="spinner-dots">Typing...</span>
+                </div>
+            `;
+            chatBox.appendChild(div);
+            scrollToBottom();
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        function scrollToBottom() {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Simple Keyword Matching Logic (The "Brain")
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+
+            if (input.includes('hello') || input.includes('hi')) {
+                return "Hi there! Looking for a hostel today?";
+            }
+            else if (input.includes('price') || input.includes('cost') || input.includes('cheap')) {
+                return "Our hostels range from Ksh 3,500 to Ksh 12,000. You can filter by price on the 'Hostels' page.";
+            }
+            else if (input.includes('book') || input.includes('reserve')) {
+                return "To book, simply go to a hostel's details page and click 'Book Now'. You'll need to pay a deposit via M-Pesa.";
+            }
+            else if (input.includes('wifi')) {
+                return "Yes! 90% of our listed hostels include free high-speed Wi-Fi. Check the amenities list on the specific hostel card.";
+            }
+            else if (input.includes('location') || input.includes('where')) {
+                return "We have hostels in Juja, Kutus, Nairobi CBD, Kerugoya, and Thika. Which location are you interested in?";
+            }
+            else {
+                return "I'm not sure I understand. Try asking about 'Prices', 'Booking', or 'Location', or click 'Contact' in the menu for human help.";
+            }
+        }
+    </script>
+
+</body>
+</html>

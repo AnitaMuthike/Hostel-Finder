@@ -24,13 +24,13 @@
                         <a href="Home.html" class="nav-link text-white fw-bold">Find Hostel</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Home.html" class="nav-link text-white fw-bold">Smart Suggestions</a>
+                        <a href="SmartSuggestion.html" class="nav-link text-white fw-bold">Smart Suggestions</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Home.html" class="nav-link text-white fw-bold">Hostels</a>
+                        <a href="Hostels.html" class="nav-link text-white fw-bold">Hostels</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Home.html" class="nav-link text-white fw-bold">Chatbot</a>
+                        <a href="Chatbot.html" class="nav-link text-white fw-bold">Chatbot</a>
                     </li>
                     <li class="nav-item">
                         <a href="Home.html" class="nav-link text-white fw-bold">Bookmarks</a>
@@ -115,6 +115,97 @@
         </div>
       </div>
     </div>
+
+    <!-- AI Finder Toggle Button -->
+<div class="text-center my-4">
+    <button id="aiToggleBtn" class="btn btn-primary px-5 py-2 fw-bold" 
+            type="button">
+        🤖 Smart AI Finder
+    </button>
+</div>
+
+<!-- AI Finder Section -->
+<div class="collapse" id="aiFinderSection">
+
+  <div class="card shadow-lg border-0 p-4 rounded-4">
+      
+      <h3 class="fw-bold text-primary mb-2">AI Hostel Finder</h3>
+      <p class="text-muted mb-4">
+          Answer a few questions and let our AI recommend the best hostel for you instantly.
+      </p>
+
+      <div class="row g-4">
+
+          <div class="col-md-4">
+              <label class="form-label fw-bold">Your Budget (Ksh)</label>
+              <input type="number" class="form-control form-control-lg" placeholder="e.g 6000 - 8000">
+          </div>
+
+          <div class="col-md-4">
+              <label class="form-label fw-bold">Preferred Room Type</label>
+              <select class="form-select form-select-lg">
+                  <option selected disabled>Choose type</option>
+                  <option>Single</option>
+                  <option>Double</option>
+                  <option>Bedsitter</option>
+                  <option>Hostel Dorm</option>
+              </select>
+          </div>
+
+          <div class="col-md-4">
+              <label class="form-label fw-bold">Location Preference</label>
+              <select class="form-select form-select-lg">
+                  <option selected disabled>Select location priority</option>
+                  <option>Near School</option>
+                  <option>Quiet Area</option>
+                  <option>Main Road</option>
+                  <option>Near Market</option>
+              </select>
+          </div>
+
+          <div class="col-md-6">
+              <label class="form-label fw-bold">Amenities You Care About</label>
+              <select class="form-select form-select-lg">
+                  <option>WiFi</option>
+                  <option>Hot Shower</option>
+                  <option>Security</option>
+                  <option>Water Availability</option>
+                  <option>Power Backup</option>
+              </select>
+          </div>
+
+          <div class="col-md-6">
+              <label class="form-label fw-bold">Distance Preference</label>
+              <select class="form-select form-select-lg">
+                  <option>0 - 300m</option>
+                  <option>300m - 1km</option>
+                  <option>1km - 3km</option>
+              </select>
+          </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg w-100 mt-4 fw-bold">
+          🔍 Get Smart AI Suggestion
+      </button>
+
+  </div>
+
+</div>
+
+<!-- SCRIPT: Makes toggle open/close properly -->
+<script>
+document.getElementById("aiToggleBtn").addEventListener("click", function() {
+    const aiSection = document.getElementById("aiFinderSection");
+    const bsCollapse = new bootstrap.Collapse(aiSection, { toggle: false });
+
+    if (aiSection.classList.contains("show")) {
+        bsCollapse.hide();   // Close if already open
+    } else {
+        bsCollapse.show();   // Open if closed
+    }
+});
+</script>
+
 
     <!-- Filters & Sort -->
     <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-3">
@@ -547,7 +638,7 @@
         <ul class="list-unstyled">
           <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
           <li><a href="find-hostel.html" class="text-white text-decoration-none">Find Hostel</a></li>
-          <li><a href="smart-suggestions.html" class="text-white text-decoration-none">Smart Suggestions</a></li>
+          <li><a href="SmartSuggestion.html" class="text-white text-decoration-none">Smart Suggestions</a></li>
           <li><a href="blog.html" class="text-white text-decoration-none">Tips/Blog</a></li>
           <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
         </ul>

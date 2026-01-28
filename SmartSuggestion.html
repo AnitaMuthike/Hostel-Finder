@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Suggestion Tab Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for the tab container */
+        .tab-content-container {
+            max-width: 700px;
+            margin: 40px auto;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .anonymous-note {
+            font-style: italic;
+            color: #6c757d;
+        }
+        /* Ensure the active tab link uses the primary blue color */
+        .nav-link.active {
+            background-color: #0d6efd !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top w-100 shadow">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fw-bold">Smart Hostel Finder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2">
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="FindHostel.html" class="nav-link text-white fw-bold">Find Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="SmartSuggestion.html" class="nav-link text-white fw-bold">Smart Suggestions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Hostels.html" class="nav-link text-white fw-bold">Hostels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Chatbot.html" class="nav-link text-white fw-bold">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Bookmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Tips/Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Add Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Home.html" class="nav-link text-white fw-bold">Contact</a>
+                    </li>
+                    </ul>
+
+                    <ul class="navbar-nav mx-3 mb-2">
+                        <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-dark fw-bold" href="#">Login</a>
+                        </li>
+                    </ul>
+                
+            </div>
+        </div>
+    </nav>
+<div class="container tab-content-container">
+
+    <h1 class="pt-3 px-3 text-center text-primary pb-3 fw-bold">Smart Suggestion Center</h1>
+    <hr>
+
+    <ul class="nav nav-pills mb-3 px-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active btn-primary" id="pills-submit-tab" data-bs-toggle="pill" data-bs-target="#pills-submit" type="button" role="tab" aria-controls="pills-submit" aria-selected="true">
+                Submit Feedback
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-info-tab" data-bs-toggle="pill" data-bs-target="#pills-info" type="button" role="tab" aria-controls="pills-info" aria-selected="false">
+                Process Info
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+
+        <div class="tab-pane fade show active p-4" id="pills-submit" role="tabpanel" aria-labelledby="pills-submit-tab">
+    <h3 class="mb-3 text-primary">✍️ Submit Anonymous Text</h3>
+
+    <p class="anonymous-note alert alert-warning border-warning">
+        **Crucial:** All submissions are **completely anonymous**. No personal identifying information (IP address, email, etc.) will be recorded.
+    </p>
+
+    <form id="anonymousFeedbackForm">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Select Submission Type:</label>
+            <div class="d-flex flex-wrap" id="feedbackTypeContainer">
+                <input type="radio" class="btn-check" name="feedbackType" id="typeSuggestion" autocomplete="off" value="suggestion" checked>
+                <label class="btn btn-outline-primary me-2 mb-2" for="typeSuggestion">💡 Suggestion</label>
+
+                <input type="radio" class="btn-check" name="feedbackType" id="typeComplaint" autocomplete="off" value="complaint">
+                <label class="btn btn-outline-danger me-2 mb-2" for="typeComplaint">⚠️ Complaint/Issue</label>
+
+                <input type="radio" class="btn-check" name="feedbackType" id="typeGeneral" autocomplete="off" value="general">
+                <label class="btn btn-outline-secondary me-2 mb-2" for="typeGeneral">💬 General Feedback</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="mb-3" id="complaintTypeDropdown" style="display: none;">
+            <label class="form-label fw-bold text-danger">Complaint Type</label>
+            <select class="form-select border-danger">
+                <option selected disabled>Select the specific complaint category...</option>
+                <option>Hostel Issue</option>
+                <option>Owner Misconduct</option>
+                <option>Incorrect Price Listing</option>
+                <option>Platform Bugs/Errors</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+    <div class="mb-3">
+            <label class="form-label fw-bold">Hostel Name (Optional)</label>
+            <input type="text" class="form-control" placeholder="e.g. Sunrise Hostel">
+        </div>
+
+        <div class="mb-4">
+            <label for="feedbackContent" class="form-label fw-bold">Your Anonymous Message:</label>
+            <textarea class="form-control" id="feedbackContent" rows="6" placeholder="Please describe your suggestion or complaint clearly and constructively..." required></textarea>
+            <div class="form-text">
+                Max 500 characters. Help us improve!
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary w-100">
+            <i class="fas fa-paper-plane me-2"></i> Send Anonymous Text
+        </button>
+    </form>
+</div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const feedbackTypeRadios = document.querySelectorAll('input[name="feedbackType"]');
+        const complaintDropdown = document.getElementById('complaintTypeDropdown');
+
+        function toggleComplaintDropdown() {
+            // Check if the currently checked radio button has the value 'complaint'
+            const selectedType = document.querySelector('input[name="feedbackType"]:checked').value;
+            
+            if (selectedType === 'complaint') {
+                complaintDropdown.style.display = 'block'; // Show the dropdown
+            } else {
+                complaintDropdown.style.display = 'none';  // Hide the dropdown
+            }
+        }
+
+        // Add event listeners to all radio buttons
+        feedbackTypeRadios.forEach(radio => {
+            radio.addEventListener('change', toggleComplaintDropdown);
+        });
+
+        // Initialize the state when the page loads (it should be hidden since 'suggestion' is checked)
+        // This is good practice, though we already set style="display: none;"
+        toggleComplaintDropdown();
+    });
+</script>
+
+<footer class="text-white pt-5 pb-4" style="background: linear-gradient(135deg, #6a11cb, #2575fc); color: white;" class="pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-warning">About Smart Hostel Finder</h5>
+        <p class="small">
+          We help students find hostels near their campus with ease. Our intelligent chatbot and proximity-based suggestions make booking convenient and stress-free.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="FindHostel.html" class="text-white text-decoration-none">Find Hostel</a></li>
+          <li><a href="SmartSuggestion.html" class="text-white text-decoration-none">Smart Suggestions</a></li>
+          <li><a href="blog.html" class="text-white text-decoration-none">Tips/Blog</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning">Contact Us</h5>
+        <p class="small mb-1">Email: support@smarthostelfinder.com</p>
+        <p class="small mb-1">Phone: +254 700 000 000</p>
+        <p class="small">Address: Nairobi, Kenya</p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-2 mb-4">
+        <h5 class="fw-bold text-warning">Follow Us</h5>
+        <div class="d-flex gap-2">
+          <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="bg-white">
+
+    <div class="text-center small">
+      &copy; 2025 Smart Hostel Finder. All Rights Reserved.**Designed by Anita Muthike.**
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script> 
+</body>
+</html>

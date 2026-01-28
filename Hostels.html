@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Hostels | Smart Hostel Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        /* Page Background */
+        body {
+            background-color: #f8f9fa; /* Light gray background for listings */
+        }
+
+        /* Card Image Sizing (Consistent) */
+        .card-img-top {
+            height: 220px; /* Fixed height for uniformity */
+            object-fit: cover;
+        }
+
+        /* Card Hover Effect */
+        .hostel-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+        }
+        .hostel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        }
+
+        /* Sticky Sidebar for Filters on Desktop */
+        .sticky-filter {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 90px; /* Height of navbar + gap */
+            z-index: 1020;
+        }
+    </style>
+</head>
+<body class="min-vh-100 d-flex flex-column">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top w-100 shadow">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fw-bold h5 text-sm">Smart Hostel Finder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-nowrap overflow-x-auto text-sm">
+                    <li class="nav-item"><a href="Home.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Home</a></li>
+                    <li class="nav-item"><a href="FindHostel.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Find Hostel</a></li>
+                    <li class="nav-item"><a href="SmartSuggestion.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Smart Suggestions</a></li>
+                    <li class="nav-item"><a href="Hostels.html" class="nav-link text-white fw-bold active px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Hostels</a></li>
+                    <li class="nav-item"><a href="Chatbot.html" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Chatbot</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Bookmarks</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Tips/Blog</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Add Hostel</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">About Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white fw-bold px-0 py-1 px-lg-2 py-lg-2 text-nowrap text-sm">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav mx-3 mb-2 mb-lg-0 ms-0">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-dark fw-bold px-2 text-nowrap text-sm" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4 flex-grow-1">
+        
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold text-dark">Browse All Hostels</h2>
+                <p class="text-muted">Showing 45 available hostels near you</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <select class="form-select w-auto d-inline-block shadow-sm">
+                    <option selected>Sort By: Recommended</option>
+                    <option value="1">Price: Low to High</option>
+                    <option value="2">Price: High to Low</option>
+                    <option value="3">Rating: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-lg-3">
+                <div class="card shadow-sm border-0 sticky-filter">
+                    <div class="card-header bg-white fw-bold border-bottom">
+                        <i class="bi bi-funnel-fill me-1 text-primary"></i> Filter Results
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Location / Campus</label>
+                                <select class="form-select form-select-sm">
+                                    <option selected>All Locations</option>
+                                    <option value="Juja">Juja (JKUAT)</option>
+                                    <option value="Kutus">Kutus (Kirinyaga)</option>
+                                    <option value="Kerugoya">Kerugoya</option>
+                                    <option value="Nairobi">Nairobi CBD</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Max Price (Ksh)</label>
+                                <input type="range" class="form-range" min="3000" max="20000" id="priceRange">
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>3k</span>
+                                    <span>20k</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Room Type</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="bedsitter">
+                                    <label class="form-check-label small" for="bedsitter">Bedsitter</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="single">
+                                    <label class="form-check-label small" for="single">Single Room</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="double">
+                                    <label class="form-check-label small" for="double">Double Room</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Amenities</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="wifiCheck">
+                                    <label class="form-check-label small" for="wifiCheck">Free Wi-Fi</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="showerCheck">
+                                    <label class="form-check-label small" for="showerCheck">Hot Shower</label>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary w-100 btn-sm fw-bold">Apply Filters</button>
+                            <button class="btn btn-outline-secondary w-100 btn-sm mt-2">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row g-4">
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100 hostel-card">
+                            <div class="position-relative">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">Verified</span>
+                                <img src="Images/SunriseHos.png" class="card-img-top" alt="Hostel Image">
+                                <button class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm" title="Bookmark">
+                                    <i class="bi bi-heart text-danger"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold text-dark mb-1">Sunrise Hostel</h5>
+                                <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Juja • Gate C</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark border">WiFi</span>
+                                    <span class="badge bg-light text-dark border">Shower</span>
+                                </div>
+                                <h6 class="fw-bold text-primary">Ksh 6,500 <small class="text-muted fw-normal">/ month</small></h6>
+                                <a href="HostelDetails.html" class="stretched-link btn btn-outline-primary w-100 mt-2 btn-sm fw-bold">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100 hostel-card">
+                            <div class="position-relative">
+                                <img src="Images/GreenValley.png" class="card-img-top" alt="Hostel Image">
+                                <button class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold text-dark mb-1">Green Valley Dorms</h5>
+                                <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Kutus • Near KMTC</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark border">Security</span>
+                                    <span class="badge bg-light text-dark border">Water</span>
+                                </div>
+                                <h6 class="fw-bold text-primary">Ksh 7,200 <small class="text-muted fw-normal">/ month</small></h6>
+                                <a href="HostelDetails.html" class="stretched-link btn btn-outline-primary w-100 mt-2 btn-sm fw-bold">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100 hostel-card">
+                            <div class="position-relative">
+                                <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2">Popular</span>
+                                <img src="Images/RoyalResidence.png" class="card-img-top" alt="Hostel Image">
+                                <button class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold text-dark mb-1">Royal Residency</h5>
+                                <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Kerugoya Town</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark border">Tiled</span>
+                                    <span class="badge bg-light text-dark border">Balcony</span>
+                                </div>
+                                <h6 class="fw-bold text-primary">Ksh 9,000 <small class="text-muted fw-normal">/ month</small></h6>
+                                <a href="HostelDetails.html" class="stretched-link btn btn-outline-primary w-100 mt-2 btn-sm fw-bold">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100 hostel-card">
+                            <div class="position-relative">
+                                <img src="Images/CampusHub.png" class="card-img-top" alt="Hostel Image">
+                                <button class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold text-dark mb-1">The Campus Hub</h5>
+                                <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Nairobi • UoN</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark border">WiFi</span>
+                                    <span class="badge bg-light text-dark border">Gym</span>
+                                </div>
+                                <h6 class="fw-bold text-primary">Ksh 11,000 <small class="text-muted fw-normal">/ month</small></h6>
+                                <a href="HostelDetails.html" class="stretched-link btn btn-outline-primary w-100 mt-2 btn-sm fw-bold">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100 hostel-card">
+                            <div class="position-relative">
+                                <img src="Images/LakeSideView.png" class="card-img-top" alt="Hostel Image">
+                                <button class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold text-dark mb-1">Lakeside View</h5>
+                                <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Kisumu • Maseno</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark border">Lake View</span>
+                                    <span class="badge bg-light text-dark border">Quiet</span>
+                                </div>
+                                <h6 class="fw-bold text-primary">Ksh 8,000 <small class="text-muted fw-normal">/ month</small></h6>
+                                <a href="HostelDetails.html" class="stretched-link btn btn-outline-primary w-100 mt-2 btn-sm fw-bold">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100 hostel-card">
+                            <div class="position-relative">
+                                <img src="Images/SummitHeights.png" class="card-img-top" alt="Hostel Image">
+                                <button class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold text-dark mb-1">Summit Heights</h5>
+                                <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Eldoret • Moi Uni</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-light text-dark border">Spacious</span>
+                                    <span class="badge bg-light text-dark border">CCTV</span>
+                                </div>
+                                <h6 class="fw-bold text-primary">Ksh 7,800 <small class="text-muted fw-normal">/ month</small></h6>
+                                <a href="HostelDetails.html" class="stretched-link btn btn-outline-primary w-100 mt-2 btn-sm fw-bold">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">
+                            Load More Hostels <i class="bi bi-arrow-down-circle ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <button id="chatBubble" class="btn btn-primary rounded-circle shadow-lg" 
+        style="position:fixed;right:20px;bottom:20px;width:64px;height:64px;z-index:1050;">
+  <span style="font-size:22px;">💬</span>
+</button>
+
+<!-- Chat Modal (offcanvas) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="chatOff" aria-labelledby="chatOffLabel">
+  <div class="offcanvas-header">
+    <h5 id="chatOffLabel">Smart Assistant</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column" style="min-height:60vh;">
+    <div id="chatWindow" class="flex-grow-1 mb-3" style="overflow:auto;">
+      <div class="mb-3"><small class="text-muted">Assistant</small>
+        <div class="p-2 bg-light rounded">Hi! I can help find hostels near you. Try "Find nearest hostel".</div>
+      </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="mb-3">
+      <div class="d-flex gap-2 flex-wrap">
+        <button class="btn btn-outline-primary btn-sm" onclick="sendQuick('Find nearest hostel')">Find nearest hostel</button>
+        <button class="btn btn-outline-primary btn-sm" onclick="sendQuick('Compare prices')">Compare prices</button>
+        <button class="btn btn-outline-primary btn-sm" onclick="sendQuick('Check vacancy')">Check vacancy</button>
+        <button class="btn btn-outline-primary btn-sm" onclick="detectLocation()">Use my location</button>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-group">
+      <input id="chatInput" type="text" class="form-control" placeholder="Ask a question...">
+      <button id="sendBtn" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toggle offcanvas when bubble clicked
+  const chatBubble = document.getElementById('chatBubble');
+  chatBubble.addEventListener('click', () => {
+    const off = new bootstrap.Offcanvas('#chatOff');
+    off.toggle();
+  });
+
+  // simple chat append
+  function appendMessage(sender, text) {
+    const chatWindow = document.getElementById('chatWindow');
+    const el = document.createElement('div');
+    el.className = 'mb-3';
+    el.innerHTML = `<small class="text-muted">${sender}</small>
+                    <div class="p-2 ${sender==='You' ? 'bg-primary text-white' : 'bg-light'} rounded">${text}</div>`;
+    chatWindow.appendChild(el);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
+  document.getElementById('sendBtn').addEventListener('click', () => {
+    const txt = document.getElementById('chatInput').value.trim();
+    if(!txt) return;
+    appendMessage('You', txt);
+    // demo: mock AI response
+    setTimeout(()=> appendMessage('Assistant', 'I found some hostels nearby. Click "Find nearest hostel" or allow location.'), 600);
+    document.getElementById('chatInput').value = '';
+  });
+
+  function sendQuick(q) {
+    appendMessage('You', q);
+    setTimeout(()=> appendMessage('Assistant', `Demo reply for: "${q}"`), 500);
+  }
+
+  // Geolocation demo (ask permission and show coords)
+  function detectLocation() {
+    appendMessage('You', 'Use my location');
+    if (!navigator.geolocation) {
+      appendMessage('Assistant', 'Geolocation not supported by your browser.');
+      return;
+    }
+    appendMessage('Assistant', 'Requesting location...');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const lat = pos.coords.latitude.toFixed(5);
+        const lon = pos.coords.longitude.toFixed(5);
+        appendMessage('Assistant', `Got your location: ${lat}, ${lon}. Searching hostels nearby...`);
+        // here you'd call your API using lat/lon to suggest hostels
+      },
+      (err) => appendMessage('Assistant', 'Unable to get location: ' + err.message)
+    );
+  }
+</script>
+
+    <footer class="text-white pt-5 pb-4" style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold text-warning">About Smart Hostel Finder</h5>
+            <p class="small">We help students find hostels near their campus with ease. Our intelligent chatbot and proximity-based suggestions make booking convenient and stress-free.</p>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold text-warning">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="Home.html" class="text-white text-decoration-none">Home</a></li>
+              <li><a href="FindHostel.html" class="text-white text-decoration-none">Find Hostel</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold text-warning">Contact Us</h5>
+            <p class="small mb-1">Email: support@smarthostelfinder.com</p>
+            <p class="small mb-1">Phone: +254 700 000 000</p>
+          </div>
+          <div class="col-md-2 mb-4">
+            <h5 class="fw-bold text-warning">Follow Us</h5>
+            <div class="d-flex gap-2">
+              <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="bg-white">
+        <div class="text-center small">
+          © 2025 Smart Hostel Finder. All Rights Reserved. **Designed by Anita Muthike.**
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
